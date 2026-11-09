@@ -115,6 +115,7 @@ function load_email(id){
       <div>
       <p>${data.body}</p>
       <button id="archive"></button>
+      <button id="reply">Reply</button>
       </div>`
       document.getElementById("email-read-view").append(email);
       archivedButton = document.querySelector("#archive")
@@ -134,6 +135,12 @@ function load_email(id){
           }).then(()=> load_email(data.id)
         )
           
+      })
+      document.querySelector("#reply").addEventListener("click", () => {
+        compose_email();
+        document.querySelector('#compose-recipients').value = data.sender;
+        document.querySelector('#compose-subject').value = data.subject.startsWith('Re:') ? data.subject : `Re: ${data.subject}`;
+        document.querySelector('#compose-body').value = `On ${data.timestamp} ${data.sender} wrote:\n${data.body}`;
       })
     })
 

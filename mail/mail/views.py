@@ -30,7 +30,7 @@ def compose(request):
         return JsonResponse({"error": "POST request required."}, status=400)
 
     # Check recipient emails
-    data = json.loads(request.body)
+    data = json.loads(request.body)#convert request.body from a json string into a python dictionary
     emails = [email.strip() for email in data.get("recipients").split(",")]
     if emails == [""]:
         return JsonResponse({
