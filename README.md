@@ -16,7 +16,7 @@ Reply: opens the compose form with the original sender, a Re: subject (not dupli
 Tech
 
 Python / Django
-JavaScript (fetch against the provided REST API)
+JavaScript (fetch against the REST API)
 HTML / CSS
 
 
